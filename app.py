@@ -97,7 +97,7 @@ def local_css():
 local_css()  # Apply styles
 
 # --- Config and Globals ---
-CHECKPOINT_PATH = "casting_defect_model_final.pth"  # Local path to save model
+CHECKPOINT_PATH = "casting_defect_model_final.pth"  # Path to save the model file
 MODEL_URL = "https://drive.google.com/uc?export=download&id=1ef8ej8oa2IApM7hdxKDHPIAhSIJkz4si"  # Google Drive model URL
 
 CLASS_NAMES = [
@@ -155,13 +155,14 @@ DETAILED_DEFECT_INFO = {
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-@st.cache_resource(show_spinner=False)
+# --- Model Loading and Downloading ---
 def load_model():
-    # If model is not already downloaded, download it
+    # If the model is not already downloaded, download it from Google Drive
     if not os.path.exists(CHECKPOINT_PATH):
         print(f"Downloading model from {MODEL_URL}...")
         gdown.download(MODEL_URL, CHECKPOINT_PATH, quiet=False)
-
+    
+    # Load the model
     model = models.resnet18(weights=None)
     model.fc = torch.nn.Linear(model.fc.in_features, len(CLASS_NAMES))
     model.load_state_dict(torch.load(CHECKPOINT_PATH, map_location=device))
