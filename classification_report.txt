@@ -1,0 +1,17 @@
+Validation Loss: 0.0054
+
+                        precision    recall  f1-score   support
+
+blowholes_defect_front       1.00      1.00      1.00       160
+cold_shut_defect_front       1.00      1.00      1.00       276
+   cracks_defect_front       1.00      1.00      1.00       196
+             def_front       1.00      1.00      1.00      3938
+    flash_defect_front       1.00      1.00      1.00       160
+   misrun_defect_front       1.00      1.00      1.00       175
+              ok_front       0.99      1.00      1.00      3046
+ porosity_defect_front       1.00      1.00      1.00       200
+shrinkage_defect_front       1.00      1.00      1.00       140
+
+              accuracy                           1.00      8291
+             macro avg       1.00      1.00      1.00      8291
+          weighted avg       1.00      1.00      1.00      8291
