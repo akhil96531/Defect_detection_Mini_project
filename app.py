@@ -1,11 +1,11 @@
-import streamlit as st
+import os  # Add this import at the top of your app.py
+import gdown
 import torch
 from torchvision import models, transforms
 from PIL import Image
 import pandas as pd
 import io
 import re
-import gdown  # Import gdown to download the model
 
 # --- UI Styling ---
 def local_css():
